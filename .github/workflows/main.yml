@@ -1,11 +1,24 @@
 name: Main
 
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: ["main", "releases"]
+    paths:
+      - "txsensorops/**"
+      - "devel/**"
+      - "./**.toml"
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: ["main"]
+    paths:
+      - "txsensorops/**"
+      - "devel/**"
+      - "./**.toml"
+
+permissions:
+  contents: write
+  id-token: write
+  packages: write
 
 jobs:
   quality:
@@ -29,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.8', '3.9', '3.10', '3.11']
+        python-version: ["3.10", "3.11"]
       fail-fast: false
     steps:
       - name: Check out
@@ -61,19 +74,6 @@ jobs:
         uses: codecov/codecov-action@v3
         if: ${{ matrix.python-version == '3.11' }}
 
-  check-docs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out
-        uses: actions/checkout@v3
-
-      - name: Set up the environment
-        uses: ./.github/actions/setup-poetry-env
-
-      - name: Check if documentation can be built
-        run: poetry run mkdocs build -s
-
-
   release:
     runs-on: ubuntu-latset
     steps:
@@ -84,6 +84,4 @@ jobs:
         uses: ./.github/actions/setup-poetry-env
 
       - name: Python Semantic Release
-        run: |
-          semantic-release version --commit --vcs-release --push --changelog
-
+        run: make publish

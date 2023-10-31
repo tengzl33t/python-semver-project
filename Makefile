@@ -28,16 +28,8 @@ build: clean-build ## Build wheel file using poetry
 clean-build: ## clean build artifacts
 	@rm -rf dist
 
-.PHONY: docs-test
-docs-test: ## Test if documentation can be built without warnings or errors
-	@poetry run mkdocs build -s
-
-.PHONY: docs
-docs: ## Build and serve the documentation
-	@poetry run mkdocs serve
-
-.PHONY: release
-release: ## Set the next version and publish a releas to Github
+.PHONY: publish
+publish: ## Set the next version and publish a releas to Github
 	@poetry run semantic release version --vcs-release --changelog --commit --push
 
 .PHONY: help
