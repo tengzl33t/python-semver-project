@@ -5,7 +5,13 @@
 
 
 
-## v0.2.0 (2023-10-31)
+## v0.3.0 (2023-10-31)
+
+### Feature
+
+* feat: remove baz ([`604f043`](https://github.com/NickCrew/python-semver-project/commit/604f043ba0b76cf1832d87ef6def342d028ac4c2))
+
+## v0.2.0 (2023-11-01)
 
 ### Feature
 
