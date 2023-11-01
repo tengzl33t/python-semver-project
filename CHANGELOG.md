@@ -1,4 +1,4 @@
-# ThreatX SensorOps
+# Modern Python Project
 
 # CHANGELOG
 
@@ -16,6 +16,8 @@
 * build: update lock ([`9c43dd7`](https://github.com/NickCrew/python-semver-project/commit/9c43dd754a82e2dc4bf9a48ee7c18ba3ef79ce6b))
 
 ### Feature
+
+* feat: remove prettier ([`2621297`](https://github.com/NickCrew/python-semver-project/commit/26212977523986dcd9066e723c64a8ababf3a83b))
 
 * feat: add baz ([`11464d1`](https://github.com/NickCrew/python-semver-project/commit/11464d173c418325cf977edd4bdf75b5546ac9ce))
 
