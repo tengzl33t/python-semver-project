@@ -5,7 +5,13 @@
 
 
 
-## v0.1.0 (2023-10-31)
+## v0.2.0 (2023-10-31)
+
+### Feature
+
+* feat: remove bar ([`82f469e`](https://github.com/NickCrew/python-semver-project/commit/82f469e7faca861dd0408cedbd44abb5804d7c32))
+
+## v0.1.0 (2023-11-01)
 
 ### Build
 
