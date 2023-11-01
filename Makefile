@@ -2,7 +2,7 @@
 install: ## Install the poetry environment and install the pre-commit hooks
 	@echo "🚀 Creating virtual environment using pyenv and poetry"
 	@poetry install
-	@ poetry run pre-commit install
+	@poetry run pre-commit install
 	@poetry shell
 
 .PHONY: check
@@ -30,7 +30,11 @@ clean-build: ## clean build artifacts
 
 .PHONY: publish
 publish: ## Set the next version and publish a releas to Github
-	@poetry run semantic release version --vcs-release --changelog --commit --push
+	@poetry run semantic-release version --vcs-release --changelog --commit --push
+
+.PHONY: print-next-version
+print-next-version: ## Print the next semantic release version
+	@poetry run semantic-release version --print
 
 .PHONY: help
 help:
