@@ -20,18 +20,19 @@ jobs:
       - name: Prepare environment
         uses: "./.github/actions/environment"
 
+      - name: Ruff check
+        run: poetry run ruff check
+
+      - name: Pytest
+        run: poetry run pytest
+
       - name: Build Python WHL package
         run: poetry build -f wheel
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./dist/*.whl
           file_glob: true
           tag: ${{ github.ref }}
-
-      - name: Python Semantic Release
-        run: poetry run semantic-release publish
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
