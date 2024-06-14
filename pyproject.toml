@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "modern_python_project_template"
-version = "0.4.0"
+version = "0.4.1"
 description = "This is a template repository for Python projects that use Poetry for their dependency management."
 authors = ["Nick Ferguson <me@nickferguson.dev>"]
 repository = "https://github.com/NickCrew/modern-python-project-template"
