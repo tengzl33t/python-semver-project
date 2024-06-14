@@ -14,13 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: release
     steps:
+      - name: Prepare environment
+        uses: "./.github/actions/environment"
+
       - name: Repo checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
-      - name: Prepare environment
-        uses: "./.github/actions/environment"
 
       - name: Python Semantic Release
         run: poetry run semantic-release publish
