@@ -9,6 +9,7 @@ def foo() -> str:
     Returns:
         str: Description of return value
     """
+    print("testing")
 
     return "foo"
 
