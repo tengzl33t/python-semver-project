@@ -4,13 +4,13 @@ on:
   push:
     branches: ["main", "releases"]
     paths:
-      - "modern_python_project_template_test/**"
-      - "./test/**.toml"
+      - "modern_python_project_template/**"
+      - "tests/**"
   pull_request:
     branches: ["main"]
     paths:
-      - "modern_python_project_template_test/**"
-      - "./test/**.toml"
+      - "modern_python_project_template/**"
+      - "tests/**"
 
 permissions:
   contents: write
