@@ -5,6 +5,12 @@
 
 
 
+## v0.4.5 (2024-06-14)
+
+### Unknown
+
+* fix ([`5fdf7d4`](https://github.com/tengzl33t/python-semver-project/commit/5fdf7d487eb381d2336b1e3c5203d187a12f5b57))
+
 ## v0.4.4 (2024-06-14)
 
 ### Unknown
