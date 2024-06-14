@@ -23,14 +23,6 @@ jobs:
         uses: "./.github/actions/environment"
 
       - name: Python Semantic Release
-        id: release
-        uses: python-semantic-release/python-semantic-release@v9.8.1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish package to GitHub Release
-        uses: python-semantic-release/upload-to-gh-release@v9.8.1
-        if: steps.release.outputs.released == 'true'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ steps.release.outputs.tag }}
+        run: poetry run semantic-release publish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
