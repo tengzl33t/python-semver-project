@@ -29,5 +29,3 @@ version_toml = [
 ]
 
 branch = "main"
-upload_to_vcs_release = true
-build_command = "poetry build -f wheel"
