@@ -19,8 +19,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - run: git checkout HEAD^
-
       - name: Prepare environment
         uses: "./.github/actions/environment"
 

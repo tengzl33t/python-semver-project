@@ -1,17 +1,16 @@
 name: Main
 
 on:
-  workflow_dispatch:
   push:
     branches: ["main", "releases"]
     paths:
-      - "modern_python_project_template/**"
-      - "**.toml"
+      - "modern_python_project_template_test/**"
+      - "./test/**.toml"
   pull_request:
     branches: ["main"]
     paths:
-      - "modern_python_project_template/**"
-      - "**.toml"
+      - "modern_python_project_template_test/**"
+      - "./test/**.toml"
 
 permissions:
   contents: write
