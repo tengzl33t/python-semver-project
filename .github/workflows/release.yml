@@ -38,8 +38,13 @@ jobs:
           tag: ${{ github.ref }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: dump
-        run: echo steps.run_tests.outputs
+      - name: Dump env
+        run: env | sort
+
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ steps.run_tests.outputs }}
+        run: echo "$GITHUB_CONTEXT"
 
 #      - name: Post message to Slack channel
 #        id: slack
