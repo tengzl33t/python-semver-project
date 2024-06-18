@@ -37,12 +37,20 @@ jobs:
           tag: ${{ github.ref }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Dump env
+        run: env | sort
+
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
       - name: Post message to Slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.26.0
         with:
           channel-id: "C04KXAF6CKB"
-          slack-message: "GitHub release:\n${{ github.ref }}"
+          slack-message: "Software ${{ github.event.release.tag_name }} is out!\n<${{ github.event.release.html_url }}|WHL>|<${{ github.event.release.html_url }}|Release>"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
