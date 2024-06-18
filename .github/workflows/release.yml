@@ -42,9 +42,7 @@ jobs:
         run: env | sort
 
       - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ steps.whl_upload.outputs }}
-        run: echo "$GITHUB_CONTEXT"
+        run: echo ${{ steps.whl_upload.outputs.browser_download_url }}
 
 #      - name: Post message to Slack channel
 #        id: slack
