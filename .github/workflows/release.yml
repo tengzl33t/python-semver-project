@@ -43,7 +43,7 @@ jobs:
 
       - name: Dump GitHub context
         env:
-          GITHUB_CONTEXT: ${{ steps.run_tests.outputs }}
+          GITHUB_CONTEXT: ${{ steps.whl_upload.outputs }}
         run: echo "$GITHUB_CONTEXT"
 
 #      - name: Post message to Slack channel
