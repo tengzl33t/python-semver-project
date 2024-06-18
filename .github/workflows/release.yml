@@ -30,6 +30,7 @@ jobs:
         run: poetry build -f wheel
 
       - name: Upload binaries to release
+        id: whl_upload
         uses: svenstaro/upload-release-action@v2
         with:
           file: ./dist/*.whl
@@ -37,20 +38,15 @@ jobs:
           tag: ${{ github.ref }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Dump env
-        run: env | sort
+      - name: dump
+        run: echo steps.run_tests.outputs
 
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-
-      - name: Post message to Slack channel
-        id: slack
-        uses: slackapi/slack-github-action@v1.26.0
-        with:
-          channel-id: "C04KXAF6CKB"
-          slack-message: "Software ${{ github.event.release.tag_name }} is out!\n<${{ github.event.release.html_url }}|WHL>|<${{ github.event.release.html_url }}|Release>"
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+#      - name: Post message to Slack channel
+#        id: slack
+#        uses: slackapi/slack-github-action@v1.26.0
+#        with:
+#          channel-id: "C04KXAF6CKB"
+#          slack-message: "Software ${{ whl_upload }} is out!\n<${{ github.event.release.html_url }}|WHL> | <${{ github.event.release.html_url }}|Release>"
+#        env:
+#          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
