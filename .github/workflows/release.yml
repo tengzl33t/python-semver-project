@@ -38,18 +38,12 @@ jobs:
           tag: ${{ github.ref }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Dump env
-        run: env | sort
-
-      - name: Dump GitHub context
-        run: echo ${{ steps.whl_upload.outputs.browser_download_url }}
-
-#      - name: Post message to Slack channel
-#        id: slack
-#        uses: slackapi/slack-github-action@v1.26.0
-#        with:
-#          channel-id: "C04KXAF6CKB"
-#          slack-message: "Software ${{ whl_upload }} is out!\n<${{ github.event.release.html_url }}|WHL> | <${{ github.event.release.html_url }}|Release>"
-#        env:
-#          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Post message to Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.26.0
+        with:
+          channel-id: "C04KXAF6CKB"
+          slack-message: "Software ${{ steps.whl_upload.outputs.browser_download_url }} is out!\n<${{ github.event.release.html_url }}|WHL> | <${{ github.event.release.html_url }}|Release>"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
