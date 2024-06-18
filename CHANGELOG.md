@@ -5,6 +5,12 @@
 
 
 
+## v0.4.17 (2024-06-18)
+
+### Unknown
+
+* small change ([`e0abcb2`](https://github.com/tengzl33t/python-semver-project/commit/e0abcb260fd2d50efcb496a75e16d5d074902260))
+
 ## v0.4.16 (2024-06-18)
 
 ### Unknown
