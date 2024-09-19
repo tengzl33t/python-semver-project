@@ -1,3 +1,3 @@
 def test_foo():
     assert "foo" == "foo"
-    assert "fof" == "fof"
+    assert "abc" == "abc"
